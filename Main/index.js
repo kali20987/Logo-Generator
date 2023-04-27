@@ -68,7 +68,7 @@ function shapeDetails(shape, color) {
         return t.render();
     }
     if (shape == 'square') {
-        t = new Square(10, 10, 30, 30, color);
+        t = new Square(10, 10, 5000, 5000, color);
         return t.render();
     }
 }
