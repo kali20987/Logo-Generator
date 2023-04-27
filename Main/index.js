@@ -45,8 +45,17 @@ class Circle extends Shape {
 
 }
 
-class Square {
-
+class Square extends Shape{
+    constructor(x, y, width, height, fill) {
+        //console.log('in Triangle constructor');
+        super('rect ');
+        this.string = '<' + this.present()
+            + ' x="' + x + '" y="' + y + '" width="' + width + '" height="' + height
+            + '" fill="' + fill + '" />';
+    }
+    render() {
+        return this.string;
+    }
 }
 
 function shapeDetails(shape, color) {
@@ -56,6 +65,10 @@ function shapeDetails(shape, color) {
     }
     if (shape == 'circle') {
         t = new Circle(150, 100, 80, color);
+        return t.render();
+    }
+    if (shape == 'square') {
+        t = new Square(10, 10, 30, 30, color);
         return t.render();
     }
 }
