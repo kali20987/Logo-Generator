@@ -3,20 +3,25 @@ const fs = require('fs');
 
 class Shape {
     string = '';
-    constructor(shape, x, y) {
-        this.string = shape + ' ' + x + ', ' + y;
+    constructor(shape) {
+        this.string = shape;
     }
+    // setColor(color) {
+    //     this.string = this.string + 
+    // }
+
     present() {
         return this.string;
     }
 }
 
 class Triangle extends Shape {
-    
+
     constructor(x, y, x2, y2, x3, y3, fill) {
-        console.log('in Triangle constructor');
-        super('polygon points= "', x, y);
-        this.string = '<' + this.present() + ' '
+        //console.log('in Triangle constructor');
+        super('polygon points= "');
+        this.string = '<' + this.present()
+            + x + ',' + y + ' '
             + x2 + ',' + y2 + ' '
             + x3 + ',' + y3 + '" '
             + 'fill="' + fill + '" />';
@@ -26,7 +31,17 @@ class Triangle extends Shape {
     }
 }
 
-class Circle {
+class Circle extends Shape {
+    constructor(x, y, radius, fill) {
+        //console.log('in Triangle constructor');
+        super('circle ');
+        this.string = '<' + this.present()
+            + ' cx="' + x + '" cy="' + y + '" r="' + radius + '"'
+            + ' fill="' + fill + '" />';
+    }
+    render() {
+        return this.string;
+    }
 
 }
 
@@ -34,9 +49,13 @@ class Square {
 
 }
 
-function shapeDetails(shape) {
+function shapeDetails(shape, color) {
     if (shape == 'triangle') {
-        t = new Triangle(150, 0, 0, 250, 300, 250);
+        t = new Triangle(150, 0, 0, 250, 300, 250, color);
+        return t.render();
+    }
+    if (shape == 'circle') {
+        t = new Circle(150, 100, 80, color);
         return t.render();
     }
 }
@@ -47,7 +66,7 @@ const generateSVG = ({ text, textColor, shape, shapeColor }) =>
 
     `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
 
-    ${shapeDetails(shape)}
+    ${shapeDetails(shape, shapeColor)}
 
     <text x="150" y="125" font-size="60" text-anchor="middle" fill="${textColor}">${text}</text>
 
@@ -78,7 +97,7 @@ inquirer
         },
     ])
     .then((answers) => {
-        console.log(answers);
+        //console.log(answers);
         const SVGpageContent = generateSVG(answers);
 
         fs.writeFile('logo.svg', SVGpageContent, (err) =>
