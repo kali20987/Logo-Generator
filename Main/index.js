@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+//these classes make sure that the user's shape selection is accurate
 class Shape {
     string = '';
     constructor(shape) {
