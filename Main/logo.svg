@@ -1,7 +1,7 @@
 <svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
 
-    <circle  cx="150" cy="100" r="80" fill="blue" />
+    <polygon points= "150,0 0,250 300,250" fill="yellow" />
 
-    <text x="150" y="125" font-size="60" text-anchor="middle" fill="purple">KSA</text>
+    <text x="150" y="125" font-size="60" text-anchor="middle" fill="red">ksa</text>
 
     </svg>

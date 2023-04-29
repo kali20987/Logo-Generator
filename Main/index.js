@@ -7,9 +7,7 @@ class Shape {
     constructor(shape) {
         this.string = shape;
     }
-    // setColor(color) {
-    //     this.string = this.string + 
-    // }
+    
 
     present() {
         return this.string;
@@ -19,7 +17,6 @@ class Shape {
 class Triangle extends Shape {
 
     constructor(x, y, x2, y2, x3, y3, fill) {
-        //console.log('in Triangle constructor');
         super('polygon points= "');
         this.string = '<' + this.present()
             + x + ',' + y + ' '
@@ -34,7 +31,6 @@ class Triangle extends Shape {
 
 class Circle extends Shape {
     constructor(x, y, radius, fill) {
-        //console.log('in Triangle constructor');
         super('circle ');
         this.string = '<' + this.present()
             + ' cx="' + x + '" cy="' + y + '" r="' + radius + '"'
@@ -48,7 +44,6 @@ class Circle extends Shape {
 
 class Square extends Shape{
     constructor(x, y, width, height, fill) {
-        //console.log('in Triangle constructor');
         super('rect ');
         this.string = '<' + this.present()
             + ' x="' + x + '" y="' + y + '" width="' + width + '" height="' + height
