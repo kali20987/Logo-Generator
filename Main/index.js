@@ -74,6 +74,7 @@ function shapeDetails(shape, color) {
     }
 }
 
+
 //this generates the SVG file and how it will look like
 const generateSVG = ({ text, textColor, shape, shapeColor }) =>
 
@@ -120,3 +121,4 @@ inquirer
     });
 //when the user's answers are complete, it will generate the SVG file
 
+module.exports = { Circle, Triangle, Square };
